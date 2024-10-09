@@ -1,5 +1,6 @@
 import pytest
 
+from src.saver import JSONSaver
 from src.vacancy import Vacancy
 
 
@@ -29,3 +30,14 @@ def vac_2():
         "Перевозка работников и строительных материалов.",
         "Красноярск, Башиловская улица, 8"
     )
+
+
+@pytest.fixture()
+def json_saver():
+    return JSONSaver("test")
+
+
+@pytest.fixture()
+def test_data():
+    data = JSONSaver("test")
+    return data.add_vacancy({'id': '107292263', 'name': 'Заместитель главного механика по автотранспорту'})
