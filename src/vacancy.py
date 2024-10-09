@@ -43,7 +43,7 @@ class Vacancy:
         return {
             "id": self.__id,
             "name": self.__name,
-            'salary': {
+            "salary": {
                 "from": self.__salary_from,
                 "to": self.__salary_to,
             },
@@ -52,7 +52,7 @@ class Vacancy:
                 "requirement": self.requirement,
                 "responsibility": self.responsibility,
             },
-            "address": self.address
+            "address": self.address,
         }
 
     @classmethod
@@ -62,10 +62,10 @@ class Vacancy:
         return cls(
             data_vacancy["id"],
             data_vacancy["name"],
-            data_vacancy['salary']["from"],
-            data_vacancy['salary']["to"],
-            data_vacancy['alternate_url'],
-            data_vacancy['snippet']['requirement'],
-            data_vacancy['snippet']['responsibility'],
-            data_vacancy['address']
+            data_vacancy["salary"]["from"],
+            data_vacancy["salary"]["to"],
+            data_vacancy["alternate_url"],
+            data_vacancy["snippet"]["requirement"],
+            data_vacancy["snippet"]["responsibility"],
+            data_vacancy["address"],
         )
