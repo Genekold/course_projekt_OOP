@@ -34,7 +34,7 @@ class Vacancy:
         """Метод сравнения экземпляров"""
 
         salery_self = [self.__salary_from, self.__salary_to]
-        salery_other = [other.__salery_from, other.__salary_to]
+        salery_other = [other.__salary_from, other.__salary_to]
         return salery_self < salery_other
 
     def to_dict(self) -> dict:
