@@ -1,6 +1,6 @@
-import json
 import os.path
 from abc import ABC, abstractmethod
+import json
 
 from config import DATA_DIR
 
@@ -48,3 +48,27 @@ class JSONSaver(Saver):
 
         data = self.get_vacancy()
         data.extend([vacancy])
+
+        with open(self.path_file, "w", encoding="utf-8") as file:
+            json.dump(data, file, ensure_ascii=False, indent=4)
+
+    def delete_vacancy(self):
+        """Удаление данных из JSON-файла"""
+
+        with open(self.path_file, "w", encoding="utf-8") as file:
+            json.dump([], file)
+
+
+class EXCELSaver(Saver):
+    """Класс для записи в EXCEL-файл"""
+    pass
+
+
+class CSVSaver(Saver):
+    """Класс для записи в CSV-файл"""
+    pass
+
+
+class TXTSaver(Saver):
+    """Класс для записи в TXT-файл"""
+    pass
