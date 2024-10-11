@@ -8,8 +8,8 @@ from config import DATA_DIR
 class Saver(ABC):
     """Абстрактный класс для записи в файл"""
 
-    def __init__(self, filename: str):
-        self.filname = filename
+    def __init__(self):
+        pass
 
     @abstractmethod
     def get_vacancy(self):
@@ -27,10 +27,10 @@ class Saver(ABC):
 class JSONSaver(Saver):
     """Класс для записи в JSON-файл"""
 
-    def __init__(self, filename: str):
+    def __init__(self, filename: str = "vacancies"):
         """Конструктор класса"""
-        super().__init__(filename)
-        self.path_file = os.path.join(DATA_DIR, self.filname + ".json")
+        self.__filename = filename
+        self.path_file = os.path.join(DATA_DIR, self.__filename + ".json")
 
     def get_vacancy(self):
         """Получение данных из JSON-файла"""
